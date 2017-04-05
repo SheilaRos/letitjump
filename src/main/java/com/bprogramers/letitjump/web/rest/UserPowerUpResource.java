@@ -36,7 +36,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class UserPowerUpResource {
-
+ 
     private final Logger log = LoggerFactory.getLogger(UserPowerUpResource.class);
 
     @Inject
