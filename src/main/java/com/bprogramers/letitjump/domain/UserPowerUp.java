@@ -49,6 +49,15 @@ public class UserPowerUp implements Serializable {
         return this;
     }
 
+    public UserPowerUp(Integer quantity, User user, PowerUp powerUp) {
+        this.quantity = quantity;
+        this.user = user;
+        this.powerUp = powerUp;
+    }
+
+    public UserPowerUp() {
+    }
+
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }

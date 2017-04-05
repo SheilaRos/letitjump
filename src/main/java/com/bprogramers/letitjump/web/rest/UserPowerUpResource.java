@@ -1,12 +1,17 @@
 package com.bprogramers.letitjump.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
+import com.bprogramers.letitjump.domain.PowerUp;
+import com.bprogramers.letitjump.domain.User;
+import com.bprogramers.letitjump.domain.UserCustomAtributes;
 import com.bprogramers.letitjump.domain.UserPowerUp;
-
+import com.bprogramers.letitjump.repository.PowerUpRepository;
+import com.bprogramers.letitjump.repository.UserCustomAtributesRepository;
 import com.bprogramers.letitjump.repository.UserPowerUpRepository;
+import com.bprogramers.letitjump.repository.UserRepository;
+import com.bprogramers.letitjump.security.SecurityUtils;
 import com.bprogramers.letitjump.web.rest.util.HeaderUtil;
 import com.bprogramers.letitjump.web.rest.util.PaginationUtil;
-
+import com.codahale.metrics.annotation.Timed;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +28,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing UserPowerUp.
@@ -32,9 +38,16 @@ import java.util.Optional;
 public class UserPowerUpResource {
 
     private final Logger log = LoggerFactory.getLogger(UserPowerUpResource.class);
-        
+
+    @Inject
+    private PowerUpRepository powerUpRepository;
+    @Inject
+    private UserRepository userRepository;
     @Inject
     private UserPowerUpRepository userPowerUpRepository;
+    @Inject
+    private UserCustomAtributesRepository userCustomAtributesRepository;
+
 
     /**
      * POST  /user-power-ups : Create a new userPowerUp.
@@ -77,6 +90,75 @@ public class UserPowerUpResource {
             .headers(HeaderUtil.createEntityUpdateAlert("userPowerUp", userPowerUp.getId().toString()))
             .body(result);
     }
+
+
+    /** */
+    @PutMapping("/user-power-ups/{idPowerUp}/{quantity}/byPriceGame")
+    @Timed
+    public ResponseEntity<UserPowerUp> addPowerUpGame(@PathVariable Long idPowerUp, @PathVariable int quantity) throws URISyntaxException {
+        log.debug("REST request to buy Power Up : {}", idPowerUp);
+        PowerUp powerUp = powerUpRepository.findOne(idPowerUp);
+        if(powerUp == null){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("powerUp", "idPowerUpNotExist", "...")).body(null);
+        }
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+        UserCustomAtributes userCustomAtributes = userCustomAtributesRepository.findByUserLogin(SecurityUtils.getCurrentUserLogin());
+
+        if(userCustomAtributes.getMoneyGame()<(powerUp.getPriceGame()*quantity)){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("powerUp", "idPowerUpNotEnoughtMoneyGame", "...")).body(null);
+        }
+
+        UserPowerUp userPowerUp = new UserPowerUp(0, user, powerUp);
+
+        if(userPowerUpRepository.findByUser(user)
+            .stream()
+            .map(UserPowerUp::getPowerUp)
+            .collect(Collectors.toList())
+            .contains(powerUp)){
+            userPowerUp = userPowerUpRepository.findByUserAndPowerUp(user, powerUp);
+        }
+
+        userPowerUp.setQuantity(userPowerUp.getQuantity()+quantity);
+        userPowerUpRepository.save(userPowerUp);
+
+        userCustomAtributes.setMoneyGame(userCustomAtributes.getMoneyGame()-(powerUp.getPriceGame()*quantity));
+        userCustomAtributesRepository.save(userCustomAtributes);
+
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("powerUp", powerUp.getId().toString()))
+            .body(userPowerUp);
+    }
+    /** */
+    @PutMapping("/user-power-ups/{idPowerUp}/{quantity}/byPricePremium")
+    @Timed
+    public ResponseEntity<UserPowerUp> addPowerUpPremium(@PathVariable Long idPowerUp, @PathVariable int quantity) throws URISyntaxException {
+        log.debug("REST request to buy Power Up : {}", idPowerUp);
+        PowerUp powerUp = powerUpRepository.findOne(idPowerUp);
+        if(powerUp == null){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("powerUp", "idPowerUpNotExist", "...")).body(null);
+        }
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+        UserCustomAtributes userCustomAtributes = userCustomAtributesRepository.findByUserLogin(SecurityUtils.getCurrentUserLogin());
+
+        if(userCustomAtributes.getMoneyPremium()<(powerUp.getPricePremium()*quantity)){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("powerUp", "idPowerUpNotEnoughtMoneyPremium", "...")).body(null);
+        }
+        UserPowerUp userPowerUp = new UserPowerUp(0, user, powerUp);
+
+        if(userPowerUpRepository.findByUser(user).contains(powerUp)){
+            userPowerUp = userPowerUpRepository.findByUserAndPowerUp(user, powerUp);
+        }
+
+        userPowerUp.setQuantity(userPowerUp.getQuantity()+quantity);
+        userPowerUpRepository.save(userPowerUp);
+        userCustomAtributes.setMoneyPremium(userCustomAtributes.getMoneyPremium()-(powerUp.getPricePremium()*quantity));
+        userCustomAtributesRepository.save(userCustomAtributes);
+
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("powerUp", powerUp.getId().toString()))
+            .body(userPowerUp);
+    }
+
 
     /**
      * GET  /user-power-ups : get all the userPowerUps.
