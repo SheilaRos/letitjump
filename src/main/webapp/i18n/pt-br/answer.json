@@ -1,0 +1,28 @@
+{
+    "letItJumpApp": {
+        "answer" : {
+            "home": {
+                "title": "Answers",
+                "createLabel": "Criar novo Answer",
+                "createOrEditLabel": "Criar ou editar Answer",
+                "search": "Pesquisar por Answer"
+            },
+            "created": "Um novo Answer é criado com o identificador {{ param }}",
+            "updated": "Um Answer é atualizado com o identificador {{ param }}",
+            "deleted": "Um Answer é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Answer {{ id }}?"
+            },
+            "detail": {
+                "title": "Answer"
+            },
+            "summary": "Summary",
+            "text": "Text",
+            "liked": "Liked",
+            "disliked": "Disliked",
+            "forumEntry": "Forum Entry",
+            "answer": "Answer",
+            "answer": "Answer"
+        }
+    }
+}

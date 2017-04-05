@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity UserPowerUp.
+    -->
+    <changeSet id="20170405164404-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_power_up"
+                                 constraintName="fk_user_power_up_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="power_up_id"
+                                 baseTableName="user_power_up"
+                                 constraintName="fk_user_power_up_power_up_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="power_up"/>
+
+    </changeSet>
+</databaseChangeLog>

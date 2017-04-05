@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prize",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170125182937",
+    "entityTableName": "achievement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

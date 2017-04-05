@@ -1,0 +1,24 @@
+{
+    "letItJumpApp": {
+        "achievement" : {
+            "home": {
+                "title": "Achievements",
+                "createLabel": "Criar novo Achievement",
+                "createOrEditLabel": "Criar ou editar Achievement",
+                "search": "Pesquisar por Achievement"
+            },
+            "created": "Um novo Achievement é criado com o identificador {{ param }}",
+            "updated": "Um Achievement é atualizado com o identificador {{ param }}",
+            "deleted": "Um Achievement é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Achievement {{ id }}?"
+            },
+            "detail": {
+                "title": "Achievement"
+            },
+            "name": "Name",
+            "prize": "Prize",
+            "user": "User"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "letItJumpApp": {
+        "level" : {
+            "home": {
+                "title": "Levels",
+                "createLabel": "Criar novo Level",
+                "createOrEditLabel": "Criar ou editar Level",
+                "search": "Pesquisar por Level"
+            },
+            "created": "Um novo Level é criado com o identificador {{ param }}",
+            "updated": "Um Level é atualizado com o identificador {{ param }}",
+            "deleted": "Um Level é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Level {{ id }}?"
+            },
+            "detail": {
+                "title": "Level"
+            },
+            "name": "Name",
+            "map": "Map",
+            "user": "User"
+        }
+    }
+}

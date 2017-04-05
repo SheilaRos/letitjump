@@ -1,0 +1,82 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySkinsLabel" data-translate="letItJumpApp.skins.home.createOrEditLabel">Create or edit a Skins</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.skins.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.skins.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="letItJumpApp.skins.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.skins.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="letItJumpApp.skins.priceGame" for="field_priceGame">Price Game</label>
+            <input type="number" class="form-control" name="priceGame" id="field_priceGame"
+                    ng-model="vm.skins.priceGame"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="letItJumpApp.skins.pricePremium" for="field_pricePremium">Price Premium</label>
+            <input type="number" class="form-control" name="pricePremium" id="field_pricePremium"
+                    ng-model="vm.skins.pricePremium"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="letItJumpApp.skins.splashArt" for="field_splashArt">Splash Art</label>
+            <input type="text" class="form-control" name="splashArt" id="field_splashArt"
+                    ng-model="vm.skins.splashArt"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="letItJumpApp.skins.attr" for="field_attr">Attr</label>
+            <input type="text" class="form-control" name="attr" id="field_attr"
+                    ng-model="vm.skins.attr"
+                    required />
+            <div ng-show="editForm.attr.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.attr.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="letItJumpApp.skins.attrValue" for="field_attrValue">Attr Value</label>
+            <input type="number" class="form-control" name="attrValue" id="field_attrValue"
+                    ng-model="vm.skins.attrValue"
+                    required />
+            <div ng-show="editForm.attrValue.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.attrValue.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.attrValue.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="letItJumpApp.skins.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" multiple name="user" ng-model="vm.skins.users" ng-options="user as user.login for user in vm.users track by user.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="letItJumpApp.userCustomAtributes.detail.title">User Custom Atributes</span> {{vm.userCustomAtributes.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="letItJumpApp.userCustomAtributes.birthday">Birthday</span></dt>
+        <dd>
+            <span>{{vm.userCustomAtributes.birthday | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.userCustomAtributes.moneyGame">Money Game</span></dt>
+        <dd>
+            <span>{{vm.userCustomAtributes.moneyGame}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.userCustomAtributes.moneyPremium">Money Premium</span></dt>
+        <dd>
+            <span>{{vm.userCustomAtributes.moneyPremium}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.userCustomAtributes.score">Score</span></dt>
+        <dd>
+            <span>{{vm.userCustomAtributes.score}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.userCustomAtributes.sex">Sex</span></dt>
+        <dd>
+            <span>{{vm.userCustomAtributes.sex}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.userCustomAtributes.user">User</span></dt>
+        <dd>
+            {{vm.userCustomAtributes.user.login}}
+        </dd>
+        <dt><span data-translate="letItJumpApp.userCustomAtributes.level">Level</span></dt>
+        <dd>
+            <a ui-sref="level-detail({id:vm.userCustomAtributes.level.id})">{{vm.userCustomAtributes.level.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="user-custom-atributes-detail.edit({id:vm.userCustomAtributes.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userCustomAtributes"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "level",
+            "otherEntityName": "level",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "birthday",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "moneyGame",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "moneyPremium",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "sex",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170125182935",
+    "entityTableName": "user_custom_atributes",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

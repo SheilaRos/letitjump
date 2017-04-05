@@ -1,0 +1,24 @@
+{
+    "letItJumpApp": {
+        "achievement" : {
+            "home": {
+                "title": "Achievements",
+                "createLabel": "Maak een nieuwe Achievement",
+                "createOrEditLabel": "Maak of wijzig een Achievement",
+                "search": "Search for Achievement"
+            },
+            "created": "A new Achievement is created with identifier {{ param }}",
+            "updated": "A Achievement is updated with identifier {{ param }}",
+            "deleted": "A Achievement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Achievement {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Achievement"
+            },
+            "name": "Name",
+            "prize": "Prize",
+            "user": "User"
+        }
+    }
+}

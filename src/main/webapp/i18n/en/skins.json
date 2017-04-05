@@ -1,0 +1,28 @@
+{
+    "letItJumpApp": {
+        "skins" : {
+            "home": {
+                "title": "Skins",
+                "createLabel": "Create a new Skins",
+                "createOrEditLabel": "Create or edit a Skins",
+                "search": "Search for Skins"
+            },
+            "created": "A new Skins is created with identifier {{ param }}",
+            "updated": "A Skins is updated with identifier {{ param }}",
+            "deleted": "A Skins is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Skins {{ id }}?"
+            },
+            "detail": {
+                "title": "Skins"
+            },
+            "name": "Name",
+            "priceGame": "Price Game",
+            "pricePremium": "Price Premium",
+            "splashArt": "Splash Art",
+            "attr": "Attr",
+            "attrValue": "Attr Value",
+            "user": "User"
+        }
+    }
+}

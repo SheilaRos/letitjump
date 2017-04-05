@@ -1,0 +1,25 @@
+{
+    "letItJumpApp": {
+        "forumEntry" : {
+            "home": {
+                "title": "Forum Entries",
+                "createLabel": "Maak een nieuwe Forum Entry",
+                "createOrEditLabel": "Maak of wijzig een Forum Entry",
+                "search": "Search for Forum Entry"
+            },
+            "created": "A new Forum Entry is created with identifier {{ param }}",
+            "updated": "A Forum Entry is updated with identifier {{ param }}",
+            "deleted": "A Forum Entry is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Forum Entry {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Forum Entry"
+            },
+            "title": "Title",
+            "text": "Text",
+            "user": "User",
+            "answer": "Answer"
+        }
+    }
+}

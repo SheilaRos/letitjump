@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "priceGame",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "pricePremium",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "splashArt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "attr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "attrValue",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170125182938",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "skins",
+    "pagination": "no"
+}

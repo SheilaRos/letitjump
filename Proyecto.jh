@@ -1,0 +1,55 @@
+entity Map {
+    name String
+}
+entity Level {
+    name String
+}
+entity UserCustomAtributes {
+	birthday LocalDate,
+    moneyGame Long,
+    moneyPremium Long,
+    score Long,
+    sex String
+}
+entity PowerUp {
+    name String,
+    priceGame Long,
+    pricePremium Long,
+    splashArt String
+}
+entity Achievement {
+    name String,
+    prize Long
+}
+entity Skins {
+    name String,
+    priceGame Long,
+    pricePremium Long,
+    splashArt String
+}
+entity ForumEntry {
+	title String,
+    text String
+}
+entity Answer {
+	summary String,
+    text String,
+    liked Integer,
+    disliked Integer
+}
+relationship OneToOne {
+	Level{map(name)} to Map{level},
+    UserCustomAtributes{user(login)} to User
+}
+relationship ManyToMany {
+	Achievement{user(login)} to User,
+	PowerUp{user(login)} to User,
+	Skins{user(login)} to User
+}
+relationship ManyToOne {
+	ForumEntry{user(login)} to User,
+    UserCustomAtributes{level(name)} to Level{user},
+    Answer{forumEntry(title)} to ForumEntry{answer} ,
+	Answer{answer(summary)} to Answer{answer}
+}
+

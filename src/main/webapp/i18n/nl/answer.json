@@ -1,0 +1,28 @@
+{
+    "letItJumpApp": {
+        "answer" : {
+            "home": {
+                "title": "Answers",
+                "createLabel": "Maak een nieuwe Answer",
+                "createOrEditLabel": "Maak of wijzig een Answer",
+                "search": "Search for Answer"
+            },
+            "created": "A new Answer is created with identifier {{ param }}",
+            "updated": "A Answer is updated with identifier {{ param }}",
+            "deleted": "A Answer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Answer {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Answer"
+            },
+            "summary": "Summary",
+            "text": "Text",
+            "liked": "Liked",
+            "disliked": "Disliked",
+            "forumEntry": "Forum Entry",
+            "answer": "Answer",
+            "answer": "Answer"
+        }
+    }
+}

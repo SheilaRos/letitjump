@@ -1,0 +1,24 @@
+{
+    "letItJumpApp": {
+        "userPowerUp" : {
+            "home": {
+                "title": "User Power Ups",
+                "createLabel": "Crear nuevo User Power Up",
+                "createOrEditLabel": "Crear o editar User Power Up",
+                "search": "Search for User Power Up"
+            },
+            "created": "Un nuevo User Power Up ha sido creado con el identificador {{ param }}",
+            "updated": "Un User Power Up ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un User Power Up ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar User Power Up {{ id }}?"
+            },
+            "detail": {
+                "title": "User Power Up"
+            },
+            "quantity": "Quantity",
+            "user": "User",
+            "powerUp": "Power Up"
+        }
+    }
+}

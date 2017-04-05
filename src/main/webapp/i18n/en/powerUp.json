@@ -1,0 +1,28 @@
+{
+    "letItJumpApp": {
+        "powerUp" : {
+            "home": {
+                "title": "Power Ups",
+                "createLabel": "Create a new Power Up",
+                "createOrEditLabel": "Create or edit a Power Up",
+                "search": "Search for Power Up"
+            },
+            "created": "A new Power Up is created with identifier {{ param }}",
+            "updated": "A Power Up is updated with identifier {{ param }}",
+            "deleted": "A Power Up is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Power Up {{ id }}?"
+            },
+            "detail": {
+                "title": "Power Up"
+            },
+            "name": "Name",
+            "priceGame": "Price Game",
+            "pricePremium": "Price Premium",
+            "splashArt": "Splash Art",
+            "time": "Time",
+            "attr": "Attr",
+            "attrValue": "Attr Value"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "forumEntry",
+            "otherEntityName": "forumEntry",
+            "otherEntityField": "title"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "answer",
+            "otherEntityName": "answer",
+            "otherEntityField": "summary"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "answer",
+            "otherEntityName": "answer",
+            "otherEntityRelationshipName": "answer"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "summary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "liked",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "disliked",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170125182940",
+    "entityTableName": "answer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

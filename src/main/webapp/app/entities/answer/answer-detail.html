@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="letItJumpApp.answer.detail.title">Answer</span> {{vm.answer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="letItJumpApp.answer.summary">Summary</span></dt>
+        <dd>
+            <span>{{vm.answer.summary}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.answer.text">Text</span></dt>
+        <dd>
+            <span>{{vm.answer.text}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.answer.liked">Liked</span></dt>
+        <dd>
+            <span>{{vm.answer.liked}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.answer.disliked">Disliked</span></dt>
+        <dd>
+            <span>{{vm.answer.disliked}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.answer.forumEntry">Forum Entry</span></dt>
+        <dd>
+            <a ui-sref="forum-entry-detail({id:vm.answer.forumEntry.id})">{{vm.answer.forumEntry.title}}</a>
+        </dd>
+        <dt><span data-translate="letItJumpApp.answer.answer">Answer</span></dt>
+        <dd>
+            <a ui-sref="answer-detail({id:vm.answer.answer.id})">{{vm.answer.answer.summary}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="answer-detail.edit({id:vm.answer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

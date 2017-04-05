@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="letItJumpApp.answer.home.title">Answers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="answer.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="letItJumpApp.answer.home.createLabel">
+                        Create new Answer
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="letItJumpApp.answer.summary">Summary</span></th>
+                    <th><span data-translate="letItJumpApp.answer.text">Text</span></th>
+                    <th><span data-translate="letItJumpApp.answer.liked">Liked</span></th>
+                    <th><span data-translate="letItJumpApp.answer.disliked">Disliked</span></th>
+                    <th><span data-translate="letItJumpApp.answer.forumEntry">Forum Entry</span></th>
+                    <th><span data-translate="letItJumpApp.answer.answer">Answer</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="answer in vm.answers track by answer.id">
+                    <td><a ui-sref="answer-detail({id:answer.id})">{{answer.id}}</a></td>
+                    <td>{{answer.summary}}</td>
+                    <td>{{answer.text}}</td>
+                    <td>{{answer.liked}}</td>
+                    <td>{{answer.disliked}}</td>
+                    <td>
+                        <a ui-sref="forum-entry-detail({id:answer.forumEntry.id})">{{answer.forumEntry.title}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="answer-detail({id:answer.answer.id})">{{answer.answer.summary}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="answer-detail({id:answer.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="answer.edit({id:answer.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="answer.delete({id:answer.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

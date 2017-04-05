@@ -1,0 +1,28 @@
+{
+    "letItJumpApp": {
+        "userCustomAtributes" : {
+            "home": {
+                "title": "User Custom Atributes",
+                "createLabel": "Criar novo User Custom Atributes",
+                "createOrEditLabel": "Criar ou editar User Custom Atributes",
+                "search": "Pesquisar por User Custom Atributes"
+            },
+            "created": "Um novo User Custom Atributes é criado com o identificador {{ param }}",
+            "updated": "Um User Custom Atributes é atualizado com o identificador {{ param }}",
+            "deleted": "Um User Custom Atributes é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir User Custom Atributes {{ id }}?"
+            },
+            "detail": {
+                "title": "User Custom Atributes"
+            },
+            "birthday": "Birthday",
+            "moneyGame": "Money Game",
+            "moneyPremium": "Money Premium",
+            "score": "Score",
+            "sex": "Sex",
+            "user": "User",
+            "level": "Level"
+        }
+    }
+}

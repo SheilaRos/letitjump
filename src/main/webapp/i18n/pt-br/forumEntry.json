@@ -1,0 +1,25 @@
+{
+    "letItJumpApp": {
+        "forumEntry" : {
+            "home": {
+                "title": "Forum Entries",
+                "createLabel": "Criar novo Forum Entry",
+                "createOrEditLabel": "Criar ou editar Forum Entry",
+                "search": "Pesquisar por Forum Entry"
+            },
+            "created": "Um novo Forum Entry é criado com o identificador {{ param }}",
+            "updated": "Um Forum Entry é atualizado com o identificador {{ param }}",
+            "deleted": "Um Forum Entry é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Forum Entry {{ id }}?"
+            },
+            "detail": {
+                "title": "Forum Entry"
+            },
+            "title": "Title",
+            "text": "Text",
+            "user": "User",
+            "answer": "Answer"
+        }
+    }
+}

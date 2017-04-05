@@ -1,0 +1,49 @@
+
+<div>
+    <h2><span data-translate="letItJumpApp.skins.detail.title">Skins</span> {{vm.skins.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="letItJumpApp.skins.name">Name</span></dt>
+        <dd>
+            <span>{{vm.skins.name}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.skins.priceGame">Price Game</span></dt>
+        <dd>
+            <span>{{vm.skins.priceGame}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.skins.pricePremium">Price Premium</span></dt>
+        <dd>
+            <span>{{vm.skins.pricePremium}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.skins.splashArt">Splash Art</span></dt>
+        <dd>
+            <span>{{vm.skins.splashArt}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.skins.attr">Attr</span></dt>
+        <dd>
+            <span>{{vm.skins.attr}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.skins.attrValue">Attr Value</span></dt>
+        <dd>
+            <span>{{vm.skins.attrValue}}</span>
+        </dd>
+        <dt><span data-translate="letItJumpApp.skins.user">User</span></dt>
+        <dd>
+            <span ng-repeat="user in vm.skins.users">
+                {{user.login}}{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="skins-detail.edit({id:vm.skins.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

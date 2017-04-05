@@ -1,0 +1,23 @@
+{
+    "letItJumpApp": {
+        "map" : {
+            "home": {
+                "title": "Maps",
+                "createLabel": "Criar novo Map",
+                "createOrEditLabel": "Criar ou editar Map",
+                "search": "Pesquisar por Map"
+            },
+            "created": "Um novo Map é criado com o identificador {{ param }}",
+            "updated": "Um Map é atualizado com o identificador {{ param }}",
+            "deleted": "Um Map é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Map {{ id }}?"
+            },
+            "detail": {
+                "title": "Map"
+            },
+            "name": "Name",
+            "level": "Level"
+        }
+    }
+}

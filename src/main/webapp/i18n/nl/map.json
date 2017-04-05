@@ -1,0 +1,23 @@
+{
+    "letItJumpApp": {
+        "map" : {
+            "home": {
+                "title": "Maps",
+                "createLabel": "Maak een nieuwe Map",
+                "createOrEditLabel": "Maak of wijzig een Map",
+                "search": "Search for Map"
+            },
+            "created": "A new Map is created with identifier {{ param }}",
+            "updated": "A Map is updated with identifier {{ param }}",
+            "deleted": "A Map is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bent u zeker dat u Map {{ id }} wilt verwijderen?"
+            },
+            "detail": {
+                "title": "Map"
+            },
+            "name": "Name",
+            "level": "Level"
+        }
+    }
+}

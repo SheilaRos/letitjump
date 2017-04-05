@@ -1,0 +1,68 @@
+<div>
+    <h2 data-translate="letItJumpApp.powerUp.home.title">Power Ups</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="power-up.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="letItJumpApp.powerUp.home.createLabel">
+                        Create new Power Up
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="letItJumpApp.powerUp.name">Name</span></th>
+                    <th><span data-translate="letItJumpApp.powerUp.priceGame">Price Game</span></th>
+                    <th><span data-translate="letItJumpApp.powerUp.pricePremium">Price Premium</span></th>
+                    <th><span data-translate="letItJumpApp.powerUp.splashArt">Splash Art</span></th>
+                    <th><span data-translate="letItJumpApp.powerUp.time">Time</span></th>
+                    <th><span data-translate="letItJumpApp.powerUp.attr">Attr</span></th>
+                    <th><span data-translate="letItJumpApp.powerUp.attrValue">Attr Value</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="powerUp in vm.powerUps track by powerUp.id">
+                    <td><a ui-sref="power-up-detail({id:powerUp.id})">{{powerUp.id}}</a></td>
+                    <td>{{powerUp.name}}</td>
+                    <td>{{powerUp.priceGame}}</td>
+                    <td>{{powerUp.pricePremium}}</td>
+                    <td>{{powerUp.splashArt}}</td>
+                    <td>{{powerUp.time}}</td>
+                    <td>{{powerUp.attr}}</td>
+                    <td>{{powerUp.attrValue}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="power-up-detail({id:powerUp.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="power-up.edit({id:powerUp.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="power-up.delete({id:powerUp.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
