@@ -28,7 +28,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * REST controller for managing UserPowerUp.
@@ -36,7 +35,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class UserPowerUpResource {
- 
+
     private final Logger log = LoggerFactory.getLogger(UserPowerUpResource.class);
 
     @Inject
@@ -111,10 +110,8 @@ public class UserPowerUpResource {
         UserPowerUp userPowerUp = new UserPowerUp(0, user, powerUp);
 
         if(userPowerUpRepository.findByUser(user)
-            .stream()
             .map(UserPowerUp::getPowerUp)
-            .collect(Collectors.toList())
-            .contains(powerUp)){
+            .anyMatch(powerUp1 -> powerUp1.equals(powerUp))){
             userPowerUp = userPowerUpRepository.findByUserAndPowerUp(user, powerUp);
         }
 
@@ -145,7 +142,9 @@ public class UserPowerUpResource {
         }
         UserPowerUp userPowerUp = new UserPowerUp(0, user, powerUp);
 
-        if(userPowerUpRepository.findByUser(user).contains(powerUp)){
+        if(userPowerUpRepository.findByUser(user)
+            .map(UserPowerUp::getPowerUp)
+            .anyMatch(powerUp1 -> powerUp1.equals(powerUp))){
             userPowerUp = userPowerUpRepository.findByUserAndPowerUp(user, powerUp);
         }
 

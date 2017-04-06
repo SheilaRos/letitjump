@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Spring Data JPA repository for the UserPowerUp entity.
@@ -21,5 +22,5 @@ public interface UserPowerUpRepository extends JpaRepository<UserPowerUp,Long> {
     UserPowerUp findByUserAndPowerUp(User user, PowerUp powerUp);
 
     @Query("select userPowerUp from UserPowerUp userPowerUp where userPowerUp.user = :user")
-    List<UserPowerUp> findByUser(@Param("user") User user);
+    Stream<UserPowerUp> findByUser(@Param("user") User user);
 }
