@@ -11,6 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'queryByRanking': { method: 'GET', isArray: true, url: 'api/user-custom-atributes/byRanking'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

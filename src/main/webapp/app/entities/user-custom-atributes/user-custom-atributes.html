@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="userCustomAtributes in vm.userCustomAtributes track by userCustomAtributes.id">
+                <tr ng-repeat="userCustomAtributes in vm.userCustomAtributesByRanking track by userCustomAtributes.id">
                     <td><a ui-sref="user-custom-atributes-detail({id:userCustomAtributes.id})">{{userCustomAtributes.id}}</a></td>
                         <td>{{userCustomAtributes.birthday | date:'mediumDate'}}</td>
                     <td>{{userCustomAtributes.moneyGame}}</td>
