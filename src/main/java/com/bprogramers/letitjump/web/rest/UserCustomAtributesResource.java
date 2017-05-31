@@ -85,6 +85,7 @@ public class UserCustomAtributesResource {
 
     /**
      * */
+    //Esta es la función que devuelve los jugadores ordenados según su score
     @GetMapping("/user-custom-atributes/byRanking")
     @Timed
     public List<UserCustomAtributes> getAllUserCustomAtributesByRanking() {

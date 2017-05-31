@@ -9,7 +9,7 @@
 
     function UserCustomAtributesController ($scope, $state, UserCustomAtributes) {
         var vm = this;
-
+        //Aquí creas el array que contendrá los datos
         vm.userCustomAtributes = [];
         vm.userCustomAtributesByRanking = [];
 
@@ -21,7 +21,7 @@
                 vm.searchQuery = null;
             });
         }
-
+        //Aquí creas la función que llenará de datos el array previamente creado
         loadAllByRanking();
 
         function loadAllByRanking() {

@@ -7,8 +7,10 @@
     UserCustomAtributes.$inject = ['$resource', 'DateUtils'];
 
     function UserCustomAtributes ($resource, DateUtils) {
+        //Esta es la dirección a la que irán los datos
         var resourceUrl =  'api/user-custom-atributes/:id';
-
+    //Desde el archivo UserCustomAtributes hemos creado una query que nos devuelve todos los jugadores de la app según su score
+        //Dicha función se llama getAllUserCustomAtributesByRanking()
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
             'queryByRanking': { method: 'GET', isArray: true, url: 'api/user-custom-atributes/byRanking'},

@@ -32,7 +32,9 @@
 <div id="banner-parent"><div id="banner"></div></div></div>
 
 <!--Contenido de la napvar una imagen de madera -->
+<div style="text-align: center">
 <div ui-view="navbar" ng-cloak id="navbar"></div>
+</div>
 <div class="container" id="container">
     <div class="well" ui-view="content" style="border: none; background-color: transparent; width: 100%;">
         <!-- Angular views -->
@@ -43,7 +45,6 @@
 <div id="footer-container">
     <div class="footer" ng-cloak>
         <p data-translate="footer">This is your footer</p>
-        <div ng-include="'html/app/prueba.html'">Enlace</div>
     </div>
 </div>
 
@@ -244,7 +245,7 @@
 <!-- endbuild -->
 <style>
     #container {
-        width: 90%;
+        width: 70%;
         background: lightgoldenrodyellow;
         color: black;
         height: 90%;
@@ -294,6 +295,8 @@
     #navbar{
         border: 3px solid black;
         height: 56px;
+        width: 85%;
+        display: inline-block;
     }
 </style>
 <!-- Cambiar position a absolute si no resulta nada en div superior-->
