@@ -11,9 +11,9 @@
         $stateProvider
         .state('user-custom-atributes', {
             parent: 'entity',
-            url: '/user-custom-atributes',
+            url: '/ranking',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'letItJumpApp.userCustomAtributes.home.title'
             },
             views: {
