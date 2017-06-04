@@ -15,9 +15,7 @@
             },
             "detail": {
                 "title": "Map"
-            },
-            "name": "Name",
-            "level": "Level"
+            }
         }
     }
 }

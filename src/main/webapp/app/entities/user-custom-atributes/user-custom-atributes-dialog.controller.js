@@ -5,9 +5,9 @@
         .module('letItJumpApp')
         .controller('UserCustomAtributesDialogController', UserCustomAtributesDialogController);
 
-    UserCustomAtributesDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'UserCustomAtributes', 'User', 'Level'];
+    UserCustomAtributesDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'UserCustomAtributes', 'User'];
 
-    function UserCustomAtributesDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, UserCustomAtributes, User, Level) {
+    function UserCustomAtributesDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, UserCustomAtributes, User) {
         var vm = this;
 
         vm.userCustomAtributes = entity;
@@ -16,7 +16,6 @@
         vm.openCalendar = openCalendar;
         vm.save = save;
         vm.users = User.query();
-        vm.levels = Level.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

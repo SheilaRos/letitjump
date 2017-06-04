@@ -1,5 +1,6 @@
 package com.bprogramers.letitjump.web.rest;
 
+import com.bprogramers.letitjump.domain.ForumEntry;
 import com.codahale.metrics.annotation.Timed;
 import com.bprogramers.letitjump.domain.Answer;
 
@@ -27,7 +28,7 @@ import java.util.Optional;
 public class AnswerResource {
 
     private final Logger log = LoggerFactory.getLogger(AnswerResource.class);
-        
+
     @Inject
     private AnswerRepository answerRepository;
 
@@ -102,6 +103,13 @@ public class AnswerResource {
                 result,
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/answers/forumEntry/{id}")
+    @Timed
+    public List<Answer> getAnswerByForumEntry(@PathVariable ForumEntry forumEntry) {
+        List<Answer> answers = answerRepository.findByForumEntry(forumEntry);
+        return answers;
     }
 
     /**

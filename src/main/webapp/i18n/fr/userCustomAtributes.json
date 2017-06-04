@@ -21,8 +21,8 @@
             "moneyPremium": "Money Premium",
             "score": "Score",
             "sex": "Sex",
-            "user": "User",
-            "level": "Level"
+            "level": "Level",
+            "user": "User"
         }
     }
 }

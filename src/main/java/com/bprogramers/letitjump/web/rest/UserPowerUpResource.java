@@ -23,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -34,6 +35,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
+@Transactional
 public class UserPowerUpResource {
 
     private final Logger log = LoggerFactory.getLogger(UserPowerUpResource.class);
@@ -174,6 +176,15 @@ public class UserPowerUpResource {
         Page<UserPowerUp> page = userPowerUpRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/user-power-ups");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/user-power-up/byUser/")
+    @Timed
+    public List<UserPowerUp> getAllPowerUpByUser() {
+        log.debug("REST request to get all PowerUp by user");
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+        List <UserPowerUp> userPowerUps = (List<UserPowerUp>) userPowerUpRepository.findByUser(user);
+        return userPowerUps;
     }
 
     /**

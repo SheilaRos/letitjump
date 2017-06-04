@@ -5,9 +5,9 @@
         .module('letItJumpApp')
         .controller('UserCustomAtributesDetailController', UserCustomAtributesDetailController);
 
-    UserCustomAtributesDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'UserCustomAtributes', 'User', 'Level'];
+    UserCustomAtributesDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'UserCustomAtributes', 'User'];
 
-    function UserCustomAtributesDetailController($scope, $rootScope, $stateParams, previousState, entity, UserCustomAtributes, User, Level) {
+    function UserCustomAtributesDetailController($scope, $rootScope, $stateParams, previousState, entity, UserCustomAtributes, User) {
         var vm = this;
 
         vm.userCustomAtributes = entity;

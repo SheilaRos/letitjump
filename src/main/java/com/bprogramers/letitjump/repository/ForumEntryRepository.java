@@ -15,4 +15,7 @@ public interface ForumEntryRepository extends JpaRepository<ForumEntry,Long> {
     @Query("select forumEntry from ForumEntry forumEntry where forumEntry.user.login = ?#{principal.username}")
     List<ForumEntry> findByUserIsCurrentUser();
 
+    @Query("SELECT  forumEntry from ForumEntry forumEntry")
+    List <ForumEntry> findAllForumEntry();
+
 }

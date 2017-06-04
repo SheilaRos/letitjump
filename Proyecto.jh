@@ -1,15 +1,10 @@
-entity Map {
-    name String
-}
-entity Level {
-    name String
-}
 entity UserCustomAtributes {
 	birthday LocalDate,
     moneyGame Long,
     moneyPremium Long,
     score Long,
-    sex String
+    sex String,
+    level Integer
 }
 entity PowerUp {
     name String,
@@ -38,7 +33,6 @@ entity Answer {
     disliked Integer
 }
 relationship OneToOne {
-	Level{map(name)} to Map{level},
     UserCustomAtributes{user(login)} to User
 }
 relationship ManyToMany {
@@ -48,7 +42,6 @@ relationship ManyToMany {
 }
 relationship ManyToOne {
 	ForumEntry{user(login)} to User,
-    UserCustomAtributes{level(name)} to Level{user},
     Answer{forumEntry(title)} to ForumEntry{answer} ,
 	Answer{answer(summary)} to Answer{answer}
 }

@@ -15,10 +15,7 @@
             },
             "detail": {
                 "title": "Level"
-            },
-            "name": "Name",
-            "map": "Map",
-            "user": "User"
+            }
         }
     }
 }

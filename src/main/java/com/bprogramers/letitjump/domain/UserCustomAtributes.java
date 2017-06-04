@@ -2,6 +2,7 @@ package com.bprogramers.letitjump.domain;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -34,12 +35,14 @@ public class UserCustomAtributes implements Serializable {
     @Column(name = "sex")
     private String sex;
 
+    @NotNull
+    @Min(value = 1)
+    @Column(name = "level", nullable = false)
+    private Integer level;
+
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
-
-    @ManyToOne
-    private Level level;
 
     public Long getId() {
         return id;
@@ -114,6 +117,19 @@ public class UserCustomAtributes implements Serializable {
         this.sex = sex;
     }
 
+    public Integer getLevel() {
+        return level;
+    }
+
+    public UserCustomAtributes level(Integer level) {
+        this.level = level;
+        return this;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
     public User getUser() {
         return user;
     }
@@ -125,19 +141,6 @@ public class UserCustomAtributes implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Level getLevel() {
-        return level;
-    }
-
-    public UserCustomAtributes level(Level level) {
-        this.level = level;
-        return this;
-    }
-
-    public void setLevel(Level level) {
-        this.level = level;
     }
 
     @Override
@@ -169,6 +172,7 @@ public class UserCustomAtributes implements Serializable {
             ", moneyPremium='" + moneyPremium + "'" +
             ", score='" + score + "'" +
             ", sex='" + sex + "'" +
+            ", level='" + level + "'" +
             '}';
     }
 }

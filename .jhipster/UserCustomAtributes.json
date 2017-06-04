@@ -8,12 +8,6 @@
             "otherEntityField": "login",
             "ownerSide": true,
             "otherEntityRelationshipName": "userCustomAtributes"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "relationshipName": "level",
-            "otherEntityName": "level",
-            "otherEntityField": "name"
         }
     ],
     "fields": [
@@ -36,11 +30,20 @@
         {
             "fieldName": "sex",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "level",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": "1"
         }
     ],
     "changelogDate": "20170125182935",
-    "entityTableName": "user_custom_atributes",
     "dto": "no",
-    "pagination": "no",
-    "service": "no"
+    "service": "no",
+    "entityTableName": "user_custom_atributes",
+    "pagination": "no"
 }

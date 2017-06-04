@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('UserCustomAtributes Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockPreviousState, MockUserCustomAtributes, MockUser, MockLevel;
+        var MockEntity, MockPreviousState, MockUserCustomAtributes, MockUser;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -14,7 +14,6 @@ describe('Controller Tests', function() {
             MockPreviousState = jasmine.createSpy('MockPreviousState');
             MockUserCustomAtributes = jasmine.createSpy('MockUserCustomAtributes');
             MockUser = jasmine.createSpy('MockUser');
-            MockLevel = jasmine.createSpy('MockLevel');
             
 
             var locals = {
@@ -23,8 +22,7 @@ describe('Controller Tests', function() {
                 'entity': MockEntity,
                 'previousState': MockPreviousState,
                 'UserCustomAtributes': MockUserCustomAtributes,
-                'User': MockUser,
-                'Level': MockLevel
+                'User': MockUser
             };
             createController = function() {
                 $injector.get('$controller')("UserCustomAtributesDetailController", locals);

@@ -54,7 +54,7 @@ public class UserDTO {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.activated = activated;
+        this.activated = true;
         this.langKey = langKey;
         this.authorities = authorities;
     }

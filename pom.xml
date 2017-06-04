@@ -11,7 +11,7 @@
 
     <groupId>com.bprogramers.letitjump</groupId>
     <artifactId>let-it-jump</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.5-ALPHA</version>
     <packaging>war</packaging>
     <name>Let It Jump</name>
 

@@ -54,6 +54,9 @@ public class UserCustomAtributesResourceIntTest {
     private static final String DEFAULT_SEX = "AAAAAAAAAA";
     private static final String UPDATED_SEX = "BBBBBBBBBB";
 
+    private static final Integer DEFAULT_LEVEL = 1;
+    private static final Integer UPDATED_LEVEL = 2;
+
     @Inject
     private UserCustomAtributesRepository userCustomAtributesRepository;
 
@@ -92,7 +95,8 @@ public class UserCustomAtributesResourceIntTest {
                 .moneyGame(DEFAULT_MONEY_GAME)
                 .moneyPremium(DEFAULT_MONEY_PREMIUM)
                 .score(DEFAULT_SCORE)
-                .sex(DEFAULT_SEX);
+                .sex(DEFAULT_SEX)
+                .level(DEFAULT_LEVEL);
         return userCustomAtributes;
     }
 
@@ -122,6 +126,7 @@ public class UserCustomAtributesResourceIntTest {
         assertThat(testUserCustomAtributes.getMoneyPremium()).isEqualTo(DEFAULT_MONEY_PREMIUM);
         assertThat(testUserCustomAtributes.getScore()).isEqualTo(DEFAULT_SCORE);
         assertThat(testUserCustomAtributes.getSex()).isEqualTo(DEFAULT_SEX);
+        assertThat(testUserCustomAtributes.getLevel()).isEqualTo(DEFAULT_LEVEL);
     }
 
     @Test
@@ -146,6 +151,24 @@ public class UserCustomAtributesResourceIntTest {
 
     @Test
     @Transactional
+    public void checkLevelIsRequired() throws Exception {
+        int databaseSizeBeforeTest = userCustomAtributesRepository.findAll().size();
+        // set the field null
+        userCustomAtributes.setLevel(null);
+
+        // Create the UserCustomAtributes, which fails.
+
+        restUserCustomAtributesMockMvc.perform(post("/api/user-custom-atributes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(userCustomAtributes)))
+            .andExpect(status().isBadRequest());
+
+        List<UserCustomAtributes> userCustomAtributesList = userCustomAtributesRepository.findAll();
+        assertThat(userCustomAtributesList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllUserCustomAtributes() throws Exception {
         // Initialize the database
         userCustomAtributesRepository.saveAndFlush(userCustomAtributes);
@@ -159,7 +182,8 @@ public class UserCustomAtributesResourceIntTest {
             .andExpect(jsonPath("$.[*].moneyGame").value(hasItem(DEFAULT_MONEY_GAME.intValue())))
             .andExpect(jsonPath("$.[*].moneyPremium").value(hasItem(DEFAULT_MONEY_PREMIUM.intValue())))
             .andExpect(jsonPath("$.[*].score").value(hasItem(DEFAULT_SCORE.intValue())))
-            .andExpect(jsonPath("$.[*].sex").value(hasItem(DEFAULT_SEX.toString())));
+            .andExpect(jsonPath("$.[*].sex").value(hasItem(DEFAULT_SEX.toString())))
+            .andExpect(jsonPath("$.[*].level").value(hasItem(DEFAULT_LEVEL)));
     }
 
     @Test
@@ -177,7 +201,8 @@ public class UserCustomAtributesResourceIntTest {
             .andExpect(jsonPath("$.moneyGame").value(DEFAULT_MONEY_GAME.intValue()))
             .andExpect(jsonPath("$.moneyPremium").value(DEFAULT_MONEY_PREMIUM.intValue()))
             .andExpect(jsonPath("$.score").value(DEFAULT_SCORE.intValue()))
-            .andExpect(jsonPath("$.sex").value(DEFAULT_SEX.toString()));
+            .andExpect(jsonPath("$.sex").value(DEFAULT_SEX.toString()))
+            .andExpect(jsonPath("$.level").value(DEFAULT_LEVEL));
     }
 
     @Test
@@ -202,7 +227,8 @@ public class UserCustomAtributesResourceIntTest {
                 .moneyGame(UPDATED_MONEY_GAME)
                 .moneyPremium(UPDATED_MONEY_PREMIUM)
                 .score(UPDATED_SCORE)
-                .sex(UPDATED_SEX);
+                .sex(UPDATED_SEX)
+                .level(UPDATED_LEVEL);
 
         restUserCustomAtributesMockMvc.perform(put("/api/user-custom-atributes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -218,6 +244,7 @@ public class UserCustomAtributesResourceIntTest {
         assertThat(testUserCustomAtributes.getMoneyPremium()).isEqualTo(UPDATED_MONEY_PREMIUM);
         assertThat(testUserCustomAtributes.getScore()).isEqualTo(UPDATED_SCORE);
         assertThat(testUserCustomAtributes.getSex()).isEqualTo(UPDATED_SEX);
+        assertThat(testUserCustomAtributes.getLevel()).isEqualTo(UPDATED_LEVEL);
     }
 
     @Test

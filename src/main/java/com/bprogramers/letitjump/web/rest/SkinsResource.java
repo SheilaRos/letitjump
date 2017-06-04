@@ -163,6 +163,15 @@ public class SkinsResource {
         return skins;
     }
 
+    @GetMapping("/skins/byUser/")
+    @Timed
+    public List<Skins> getAllSkinsByUser() {
+        log.debug("REST request to get all Skins by user");
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+        List<Skins> skins = skinsRepository.findByUser(user);
+        return skins;
+    }
+
     /**
      * GET  /skins/:id : get the "id" skins.
      *

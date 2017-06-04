@@ -13,7 +13,7 @@
 
 spring:
     profiles:
-        active: dev
+        active: prod
         include: swagger
     devtools:
         restart:
@@ -24,7 +24,7 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/LetItJump?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://aa9tvo9yeobpih.cg5bgpcck1jl.eu-west-2.rds.amazonaws.com:3306/LetItJump?useUnicode=true&characterEncoding=utf8&useSSL=false
         name:
         username: root
         password:
@@ -65,7 +65,7 @@ server:
 jhipster:
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: LetItJump@localhost
-        baseUrl: http://127.0.0.1:8080
+        baseUrl: http://letitjump.eu-west-2.elasticbeanstalk.com/#/
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         graphite:

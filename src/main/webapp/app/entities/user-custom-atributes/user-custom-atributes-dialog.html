@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -47,16 +47,30 @@
                     ng-model="vm.userCustomAtributes.sex"
                      />
         </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="letItJumpApp.userCustomAtributes.level" for="field_level">Level</label>
+            <input type="number" class="form-control" name="level" id="field_level"
+                    ng-model="vm.userCustomAtributes.level"
+                    required min="1" />
+            <div ng-show="editForm.level.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.level.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.level.$error.min" data-translate="entity.validation.min" translate-value-min="1">
+                    This field should be more than 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.level.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
 
         <div class="form-group">
             <label data-translate="letItJumpApp.userCustomAtributes.user" for="field_user">User</label>
             <select class="form-control" id="field_user" name="user" ng-model="vm.userCustomAtributes.user" ng-options="user as user.login for user in vm.users track by user.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label data-translate="letItJumpApp.userCustomAtributes.level" for="field_level">Level</label>
-            <select class="form-control" id="field_level" name="level" ng-model="vm.userCustomAtributes.level" ng-options="level as level.name for level in vm.levels track by level.id">
                 <option value=""></option>
             </select>
         </div>

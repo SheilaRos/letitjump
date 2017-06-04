@@ -109,6 +109,7 @@
                                 moneyPremium: null,
                                 score: null,
                                 sex: null,
+                                level: null,
                                 id: null
                             };
                         }
