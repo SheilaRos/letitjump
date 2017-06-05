@@ -31,7 +31,7 @@ public class MailService {
 
     private static final String USER = "user";
 
-    private static final String BASE_URL = "baseUrl";
+    private static final String BASE_URL = "http://letitjump.eu-west-2.elasticbeanstalk.com/#/";
 
     @Inject
     private JHipsterProperties jHipsterProperties;

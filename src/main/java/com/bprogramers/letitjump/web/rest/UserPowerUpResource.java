@@ -160,6 +160,29 @@ public class UserPowerUpResource {
             .body(userPowerUp);
     }
 
+    @PutMapping("/user-power-ups/byUser/{idPowerUp}/")
+    @Timed
+    public ResponseEntity<UserPowerUp> updatePowerUpByUser(@PathVariable Long idPowerUp) throws URISyntaxException {
+        log.debug("REST request to buy Power Up : {}", idPowerUp);
+        PowerUp powerUp = powerUpRepository.findOne(idPowerUp);
+        if(powerUp == null){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("powerUp", "idPowerUpNotExist", "...")).body(null);
+        }
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+
+        UserPowerUp userPowerUp = userPowerUpRepository.findByUserAndPowerUp(user, powerUp);
+        if(userPowerUp.getQuantity() == 0){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("powerUp", "NoTienesDeEstaPowerUp", "...")).body(null);
+        }
+
+        userPowerUp.setQuantity(userPowerUp.getQuantity()-1);
+        userPowerUpRepository.save(userPowerUp);
+
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("powerUp", powerUp.getId().toString()))
+            .body(userPowerUp);
+    }
+
 
     /**
      * GET  /user-power-ups : get all the userPowerUps.

@@ -15,6 +15,6 @@ import java.util.List;
 public interface AnswerRepository extends JpaRepository<Answer,Long> {
 
     @Query("SELECT  answer from Answer answer where answer.forumEntry = :entry")
-    List<Answer> findByForumEntry(@Param("user") ForumEntry entry);
+    List<Answer> findByForumEntry(@Param("entry") ForumEntry entry);
 
 }

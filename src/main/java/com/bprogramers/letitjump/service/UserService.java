@@ -2,7 +2,9 @@ package com.bprogramers.letitjump.service;
 
 import com.bprogramers.letitjump.domain.Authority;
 import com.bprogramers.letitjump.domain.User;
+import com.bprogramers.letitjump.domain.UserCustomAtributes;
 import com.bprogramers.letitjump.repository.AuthorityRepository;
+import com.bprogramers.letitjump.repository.UserCustomAtributesRepository;
 import com.bprogramers.letitjump.repository.UserRepository;
 import com.bprogramers.letitjump.security.AuthoritiesConstants;
 import com.bprogramers.letitjump.security.SecurityUtils;
@@ -37,6 +39,8 @@ public class UserService {
 
     @Inject
     private UserRepository userRepository;
+    @Inject
+    private UserCustomAtributesRepository userCustomAtributesRepository;
 
     @Inject
     private AuthorityRepository authorityRepository;
@@ -94,12 +98,18 @@ public class UserService {
         newUser.setEmail(email);
         newUser.setLangKey(langKey);
         // new user is not active
-        newUser.setActivated(false);
+        newUser.setActivated(true);
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         authorities.add(authority);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
+        UserCustomAtributes userCustomAtributes = new UserCustomAtributes();
+        userCustomAtributes.setUser(newUser);
+        userCustomAtributes.setLevel(1);
+        userCustomAtributes.setMoneyGame(1500L);
+        userCustomAtributes.setMoneyPremium(975L);
+        userCustomAtributesRepository.save(userCustomAtributes);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
     }
@@ -128,6 +138,12 @@ public class UserService {
         user.setResetDate(ZonedDateTime.now());
         user.setActivated(true);
         userRepository.save(user);
+        UserCustomAtributes userCustomAtributes = new UserCustomAtributes();
+        userCustomAtributes.setUser(user);
+        userCustomAtributes.setLevel(1);
+        userCustomAtributes.setMoneyGame(1500L);
+        userCustomAtributes.setMoneyPremium(975L);
+        userCustomAtributesRepository.save(userCustomAtributes);
         log.debug("Created Information for User: {}", user);
         return user;
     }
