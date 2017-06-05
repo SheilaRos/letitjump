@@ -1,5 +1,13 @@
 package com.bprogramers.letitjump.web.rest;
 
+<<<<<<< HEAD
+=======
+import com.bprogramers.letitjump.domain.User;
+import com.bprogramers.letitjump.repository.UserRepository;
+import com.bprogramers.letitjump.security.SecurityUtils;
+import com.bprogramers.letitjump.web.rest.vm.ManagedUserVM;
+import com.codahale.metrics.annotation.Timed;
+>>>>>>> origin/master
 import com.bprogramers.letitjump.domain.UserCustomAtributes;
 import com.bprogramers.letitjump.repository.UserCustomAtributesRepository;
 import com.bprogramers.letitjump.web.rest.util.HeaderUtil;
@@ -27,6 +35,8 @@ public class UserCustomAtributesResource {
 
     @Inject
     private UserCustomAtributesRepository userCustomAtributesRepository;
+    @Inject
+    private UserRepository userRepository;
 
     /**
      * POST  /user-custom-atributes : Create a new userCustomAtributes.
@@ -70,6 +80,23 @@ public class UserCustomAtributesResource {
             .body(result);
     }
 
+
+    @PutMapping("/user-custom-atributes/score/{score}/")
+    @Timed
+    public ResponseEntity<UserCustomAtributes> updateUserCustomAtributesScore(@RequestBody ManagedUserVM managedUserVM, Integer score) throws URISyntaxException {
+       User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+       UserCustomAtributes userCustomAtributes = userCustomAtributesRepository.findByUserLogin(user.getLogin());
+        if (userCustomAtributes.getId() == null) {
+            return createUserCustomAtributes(userCustomAtributes);
+        }
+        if(score > userCustomAtributes.getScore()){
+            userCustomAtributes.setScore(score.longValue());
+        }
+        UserCustomAtributes result = userCustomAtributesRepository.save(userCustomAtributes);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("userCustomAtributes", userCustomAtributes.getId().toString()))
+            .body(result);
+    }
     /**
      * GET  /user-custom-atributes : get all the userCustomAtributes.
      *
@@ -80,6 +107,15 @@ public class UserCustomAtributesResource {
     public List<UserCustomAtributes> getAllUserCustomAtributes() {
         log.debug("REST request to get all UserCustomAtributes");
         List<UserCustomAtributes> userCustomAtributes = userCustomAtributesRepository.findAll();
+        return userCustomAtributes;
+    }
+
+    @GetMapping("/user-custom-atributes/byUser")
+    @Timed
+    public UserCustomAtributes getUserCustomAtributes() {
+        log.debug("REST request to get all UserCustomAtributes");
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+        UserCustomAtributes userCustomAtributes = userCustomAtributesRepository.findByUserLogin(user.getLogin());
         return userCustomAtributes;
     }
 
@@ -124,5 +160,7 @@ public class UserCustomAtributesResource {
         userCustomAtributesRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("userCustomAtributes", id.toString())).build();
     }
+
+
 
 }
