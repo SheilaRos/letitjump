@@ -1,7 +1,9 @@
 {
     "home": {
-        "title": "¡Bienvenido, Java Hipster!",
-        "subtitle": "Esta es su página de inicio",
+        "title": "¡Bienvenido a Let it Jump!",
+        "subtitle": "Aquí puedes consultar todo lo que quieras sobre este juego de Android",
+        "explanation": "<strong>Let it jump</strong> es un juego de plataformas para el sistema operativo Android. Fue creado como idea para un trabajo de fin de CFGS de Desarrollo de aplicaciones multiplataforma de cinco alumnos de STUCOM.<br/>En esta sección encontrarás varias cosas, entre ellas: un ranking mundial con los mejores jugadores, una página con la historia de los personajes del mundo de Let it jump, así como una sección para gestionar tu cuenta.<br/>Dicho esto, siéntete libre de descubrir funcionalidades de la web.<br/>Saludos.",
+        "subexplanation": "<strong>La página sigue en construcción, así que no dispone de todas sus funcionalidades. Aún así, siéntete libre de cmentar en el foro todas las dudas sobre el desarrollo.</strong>",
         "logged": {
             "message": "Está conectado como \"{{username}}\"."
         },

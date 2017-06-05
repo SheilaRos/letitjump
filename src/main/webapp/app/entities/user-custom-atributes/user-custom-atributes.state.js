@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/ranking',
             data: {
-                authorities: [],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'letItJumpApp.userCustomAtributes.home.title'
             },
             views: {

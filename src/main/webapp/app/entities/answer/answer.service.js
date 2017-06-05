@@ -11,6 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
+            'queryByAnswer': {method: 'GET', isArray: true, url: 'api/answers/forumEntry/{id}'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

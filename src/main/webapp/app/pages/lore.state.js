@@ -21,7 +21,7 @@
             },
             resolve: {
                 mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                    $translatePartialLoader.addPart('lore');
+                    $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }

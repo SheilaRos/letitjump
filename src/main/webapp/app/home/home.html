@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-md-8" id="fondo">
             <h1 data-translate="home.title">Welcome to Let it jump!</h1>
-            <div><p data-translate="home.subtitle">Here you can consult all you want of this Android game</p></div>
+            <div><p data-translate="home.subtitle" style="text-align: left; margin-left: 30px;" >Here you can consult all you want of this Android game</p></div>
             <div ng-switch="vm.isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true" data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
                     You are logged in as user "{{vm.account.login}}".
                 </div>
-                <div>
+                <div data-translate="home.explanation">
                     <strong>Let it jump</strong> is a platform game of the Android operating system. It was created as an idea for a final project of CFGS of Development of multiplatform applications by five students of Stucom.<br/>
                     In this web page you will find sections like a question and answer forum, a world ranking with the best players, a page where you can find out the origin of the different characters and their role in history, as well as a section to manage your account.<br/>
                     Having said that, feel free to browse through the different sections.
@@ -18,7 +18,7 @@
                     <img src="/img/banner.jpg" width="500px" height="250px"/>
                 </div>
                 <div style="margin-top: 30px;">
-                    <strong>* The page is still under construction. Some sections are missing and most are not finished. Feel free to comment on new errors both in the game and on this website.<br/>
+                    <strong data-translate="home.subexplanation">* The page is still under construction. Some sections are missing and most are not finished. Feel free to comment on new errors both in the game and on this website.<br/>
                         Our email is letitjump.help@gmail.com. We appreciate your help.</strong>
                 </div>
             </div>

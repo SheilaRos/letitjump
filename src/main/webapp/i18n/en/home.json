@@ -2,6 +2,8 @@
     "home": {
         "title": "Welcome to Let it jump!",
         "subtitle": "Here you can consult all you want of this Android game",
+        "explanation": "<strong> Let it jump </strong> is a platform game for the Android operating system. It was created as an idea final work CFGS Cross-Platform Application Development of five STUCOM students. <br/> In this section you will find several things, among them: a world ranking with the best players, a page with the history of the characters of the world of Let it jump, as well as a section to manage your account. <br/> Said this, feel free to discover web features. <br/> Greetings. ",
+        "subexplanation":"* The page is still under construction. Some sections are missing and most are not finished. Feel free to comment on new errors both in the game and on this website.<br/>Our email is letitjump.help@gmail.com. We appreciate your help.",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },

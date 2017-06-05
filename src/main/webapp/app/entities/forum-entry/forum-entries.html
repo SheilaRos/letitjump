@@ -1,39 +1,43 @@
+<h2 style="text-align: center; font-family: 'Arvo', serif; font-weight: bolder;margin-bottom: 20px;">INCIDENCES</h2>
+<div style="text-align: center; width: 100%; margin-bottom: 10px;">
+    <div style="display: inline-block; border: 1px black solid; height: 1px; width: 90%; opacity: 0.6"></div>
+</div>
+<!-- Hacer imagen para el forum-->
+<img />
+<div style="text-align: center; width: 100%;"><p>
+    Welcome to the Let it jump forum. Here you can post bugs and errors of the game, as well as doubts about<br/> the development or the operation of the game.</p> </div>
+<div style="text-align: center; width: 100%; margin-bottom: 10px; margin-top: 20px;">
+    <div style="display: inline-block; border: 1px black solid; height: 1px; width: 90%; opacity: 0.6"></div>
+</div>
 <div>
-    <h2 data-translate="letItJumpApp.forumEntry.home.title">Forum Entries</h2>
     <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="forum-entry.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="letItJumpApp.forumEntry.home.createLabel">
-                        Create new Forum Entry
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
+
     <br/>
+    <div style="text-align: center; width: 100%;">
+        <div style=" width: 90%; border: 3px saddlebrown solid; background-color: floralwhite; display: inline-block;">
     <div class="table-responsive">
-        <table class="jh-table table table-striped">
+        <table class="jh-table table table-striped" style="width: 100%">
             <thead>
                 <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="letItJumpApp.forumEntry.title">Title</span></th>
-                    <th><span data-translate="letItJumpApp.forumEntry.text">Text</span></th>
-                    <th><span data-translate="letItJumpApp.forumEntry.user">User</span></th>
-                    <th></th>
+                    <!--<th><span data-translate="global.field.id">ID</span></th>-->
+                    <th style="width: 89%"><span data-translate="letItJumpApp.forumEntry.title">Question</span></th>
+                    <th style="width: 10%; text-align: center">Enter</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="forumEntry in vm.forumEntries track by forumEntry.id">
-                    <td><a ui-sref="forum-entry-detail({id:forumEntry.id})">{{forumEntry.id}}</a></td>
-                    <td>{{forumEntry.title}}</td>
-                    <td>{{forumEntry.text}}</td>
-                    <td>
-                        {{forumEntry.user.login}}
+                    <!--<td><a ui-sref="forum-entry-detail({id:forumEntry.id})">{{forumEntry.id}}</a></td>-->
+                    <td style="text-align: left">{{forumEntry.title}}</td>
+                        {{forumEntry.user.text}}
                     </td>
-                    <td class="text-right">
+                    <td style="text-align: center">
+                        <button type="submit"
+                                                           ui-sref="forum-entry-detail({id:forumEntry.id})"
+                                                           class="btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                    </button></td>
+                    <!--<td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="forum-entry-detail({id:forumEntry.id})"
@@ -54,9 +58,27 @@
                                 <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
                             </button>
                         </div>
-                    </td>
+                    </td>-->
                 </tr>
             </tbody>
         </table>
+    </div>
+        </div>
+        <br/>
+        <br/>
+        <p style="text-align: center; margin-bottom: 10px;">Don't you find what you are looking for?<br/>
+        Report another incidence, is totally anonymous</p>
+        <div style="text-align: center; width: 100%;" class="container-fluid">
+            <div style="display: inline-block" class="row">
+                <div class="col-xs-4 no-padding-left">
+                    <button class="btn btn-primary" ui-sref="forum-entry.new" >
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span  data-translate="letItJumpApp.forumEntry.home.createLabel">
+                        Create new incidence
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -11,7 +11,7 @@
         $stateProvider
         .state('forum-entry', {
             parent: 'entity',
-            url: '/forum-entry',
+            url: '/forum',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'letItJumpApp.forumEntry.home.title'

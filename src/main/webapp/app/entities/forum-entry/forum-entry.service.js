@@ -9,6 +9,7 @@
     function ForumEntry ($resource) {
         var resourceUrl =  'api/forum-entries/:id';
 
+
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
             'get': {

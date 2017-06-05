@@ -13,6 +13,5 @@ import java.util.List;
 public interface UserCustomAtributesRepository extends JpaRepository<UserCustomAtributes,Long> {
     @Query("SELECT u FROM UserCustomAtributes  u ORDER BY u.score DESC")
     List<UserCustomAtributes> findAllOrderByScore();
-
     UserCustomAtributes findByUserLogin(String login);
 }

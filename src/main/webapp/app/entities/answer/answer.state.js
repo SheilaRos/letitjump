@@ -39,7 +39,7 @@
                 pageTitle: 'letItJumpApp.answer.detail.title'
             },
             views: {
-                'content@': {
+                'content2@': {
                     templateUrl: 'app/entities/answer/answer-detail.html',
                     controller: 'AnswerDetailController',
                     controllerAs: 'vm'

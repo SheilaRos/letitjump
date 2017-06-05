@@ -22,7 +22,7 @@
 </head>
 <body ng-app="letItJumpApp" ng-strict-di>
 <!--[if lt IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+<p style="text-align: left;" class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
@@ -151,6 +151,7 @@
 <script src="app/entities/forum-entry/forum-entry.service.js"></script>
 <script src="app/entities/forum-entry/forum-entry.controller.js"></script>
 <script src="app/entities/entity.state.js"></script>
+<script src="app/pages/forum.state.js"></script>
 <script src="app/entities/answer/answer-dialog.controller.js"></script>
 <script src="app/entities/answer/answer-detail.controller.js"></script>
 <script src="app/entities/answer/answer-delete-dialog.controller.js"></script>
@@ -257,6 +258,11 @@
         border: 2px burlywood solid;
         border-radius:2px;
     }
+    p {
+        font-family: 'Arvo', serif;
+        font-size: 16px;
+        text-align: center;
+    }
     #footer-container{
         width: 100%;
         text-align: center;
@@ -273,6 +279,9 @@
         text-align: left;
         height: 80%;
         margin-top: 30px;;
+    }
+    h1, h2, h3, h4, div{
+        font-family: 'Arvo', serif;
     }
     html > body{
         background: burlywood;
