@@ -110,6 +110,15 @@ public class UserCustomAtributesResource {
         return userCustomAtributes;
     }
 
+    @GetMapping("/user-custom-atributes/byUser")
+    @Timed
+    public UserCustomAtributes getUserCustomAtributes() {
+        log.debug("REST request to get all UserCustomAtributes");
+        User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
+        UserCustomAtributes userCustomAtributes = userCustomAtributesRepository.findByUserLogin(user.getLogin());
+        return userCustomAtributes;
+    }
+
     /**
      * GET  /user-custom-atributes/:id : get the "id" userCustomAtributes.
      *
